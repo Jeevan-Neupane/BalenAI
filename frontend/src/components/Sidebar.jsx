@@ -28,7 +28,7 @@ const Sidebar = () => {
         <div className='text-gray-100 text-xl'>
           <div className='p-2.5 mt-1 flex items-center'>
             <BsAppIndicator className='px-2 py-1 rounded-md bg-blue-600' />
-            <h1 className='font-bold text-gray-200 text-[15px] ml-3'>
+            <h1 className='font-bold text-gray-200 text-[30px] ml-3'>
               BalenAI
             </h1>
             <i
@@ -44,7 +44,7 @@ const Sidebar = () => {
           className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
         >
           <BsHouseDoorFill />
-          <span className='text-[15px] ml-4 text-gray-200 font-bold'>Home</span>
+          <span className='text-[20px] ml-4 text-gray-200 font-bold'>Home</span>
         </NavLink>
         <NavLink
           to='/cameras'
@@ -52,7 +52,7 @@ const Sidebar = () => {
           className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
         >
           <AiFillCamera />
-          <span className='text-[15px] ml-4 text-gray-200 font-bold'>
+          <span className='text-[20px] ml-4 text-gray-200 font-bold'>
             Cameras
           </span>
         </NavLink>
@@ -62,7 +62,7 @@ const Sidebar = () => {
           className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
         >
           <AiOutlineUser />
-          <span className='text-[15px] ml-4 text-gray-200 font-bold'>
+          <span className='text-[20px] ml-4 text-gray-200 font-bold'>
             Suspects
           </span>
         </NavLink>

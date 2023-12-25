@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import Layout from "./layout/Layout";
 import CameraPage from "./pages/CameraPage";
 import SuspectPage from "./pages/SuspectPage";
+import UserLayout from "./layout/UserLayout";
 
 function App() {
   const router = createBrowserRouter(
@@ -31,6 +32,10 @@ function App() {
         <Route
           path='/suspects'
           element={<SuspectPage />}
+        />
+        <Route
+          path='/user'
+          element={<UserLayout />}
         />
       </Route>
     )
