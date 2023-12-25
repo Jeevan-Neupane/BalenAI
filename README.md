@@ -51,10 +51,34 @@ Introducing Balen-AI, a real-time AI application designed to detect smoking thro
 2. **Integration with Law Enforcement Systems:**
    - Collaborating with law enforcement agencies for seamless legal processes.
 
+## Running the Project
+1. **Clone the Project**
+   ```bash
+    git clone https://github.com/Jeevan-Neupane/BalenAI.git
+   ```
+ 
+2. **Start the Backend:**
+    ```bash
+   cd /backend/
+   npm install
+   nodemon index.js
+   ```
+
+
+3. **Launch the Frontend:**
+    ```bash
+   cd /frontend/
+   npm install
+   npm run dev
+    ```
+
+4. **Access the Website:**
+    - Open your web browser and navigate to [http://localhost:5173](http://localhost:5173).
+
 
 
 ### TEAM NAME: CloseAI
-Ashok Neupane
-Sadhana Panthi
-Anil Shrestha
-Jeevan Neupane
+- [Ashok Prashad Neupane](https://www.github.com/thenaivekid)
+- [Sadhana Panthi](https://www.github.com/sadhana70)
+- [Anil Shrestha](https://www.github.com/anilstha1)
+- [Jeevan Neupane](https://www.github.com/Jeevan-Neupane)
