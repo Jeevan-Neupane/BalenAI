@@ -38,9 +38,11 @@ function HomePage() {
       </div>
       <div className='flex  mt-16  gap-36 items-center '>
         <div>
+          <h1 className='text-3xl font-semibold  text-white mb-4'>Our Goal</h1>
           <MotiveImages items={items} />
         </div>
         <div>
+          <h1 className='text-3xl font-semibold  text-white mb-4'>Locations</h1>
           <Location />
         </div>
       </div>
