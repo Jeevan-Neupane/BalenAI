@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-
+import React, { useRef, useState, useEffect } from "react";
+import Swal from "sweetalert2";
 const CameraComponent = () => {
   const videoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -30,11 +30,13 @@ const CameraComponent = () => {
         setCameraOn(true);
 
         // Create a MediaRecorder to record video
-        const mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+        const mediaRecorder = new MediaRecorder(stream, {
+          mimeType: "video/webm",
+        });
         mediaRecorderRef.current = mediaRecorder;
       }
     } catch (error) {
-      console.error('Error accessing camera:', error);
+      console.error("Error accessing camera:", error);
     }
   };
 
@@ -62,7 +64,7 @@ const CameraComponent = () => {
       };
 
       mediaRecorder.onstop = () => {
-        const recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
+        const recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
         const recordedVideoURL = URL.createObjectURL(recordedBlob);
         setRecordedVideo(recordedVideoURL);
         setRecordingTime(0);
@@ -84,32 +86,52 @@ const CameraComponent = () => {
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+      2,
+      "0"
+    )}`;
+  };
+
+  const handleSubmit = () => {
+    Swal.fire({
+      title: "Do you want to submit a video?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Submitted!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+    setRecordedVideo(null);
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto p-8 bg-gray-800 rounded-lg shadow-lg text-white">
-      <h1 className="text-3xl mb-4">Camera and Video Recording (React)</h1>
+    <div className='max-w-screen-lg mx-auto p-8 bg-gray-800 rounded-lg shadow-lg text-white'>
+      <h1 className='text-3xl mb-4'>Camera and Video Recording </h1>
       {isCameraOn ? (
         <>
-          <div className="mb-4">
+          <div className='mb-4'>
             <button
               onClick={closeCamera}
-              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 mr-2"
+              className='bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 mr-2'
             >
               Close Camera
             </button>
             {isRecording ? (
               <button
                 onClick={stopRecording}
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                className='bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600'
               >
                 Stop Recording
               </button>
             ) : (
               <button
                 onClick={startRecording}
-                className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+                className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'
               >
                 Start Recording
               </button>
@@ -119,35 +141,42 @@ const CameraComponent = () => {
       ) : (
         <button
           onClick={startCamera}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          className='bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600'
         >
           Start Camera
         </button>
       )}
       <video
         ref={videoRef}
-        className="mt-4 border"
-        width="100%"
-        height="auto"
+        className='mt-4 border'
+        width='100%'
+        height='100px'
         autoPlay
         muted
       ></video>
       {isRecording && (
-        <div className="mt-4">
-          <p className="text-lg">Recording Time: {formatTime(recordingTime)}</p>
+        <div className='mt-4'>
+          <p className='text-lg'>Recording Time: {formatTime(recordingTime)}</p>
         </div>
       )}
       {recordedVideo && (
-        <div className="mt-4">
-          <h2 className="text-2xl mb-2">Recorded Video</h2>
+        <div className='mt-4'>
+          <h2 className='text-2xl mb-2'>Recorded Video</h2>
           <video
             controls
-            className="border"
-            width="100%"
-            height="auto"
+            className='border'
+            width='100%'
+            height='100px'
             src={recordedVideo}
-            type="video/webm"
+            type='video/webm'
           />
+          {/* Show the submit button when recording is done */}
+          <button
+            onClick={handleSubmit}
+            className='bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 mt-2'
+          >
+            Submit
+          </button>
         </div>
       )}
     </div>
