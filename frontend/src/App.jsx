@@ -12,15 +12,14 @@ import CameraPage from "./pages/CameraPage";
 import SuspectPage from "./pages/SuspectPage";
 import UserLayout from "./layout/UserLayout";
 import GraphPage from "./pages/GraphPage";
+import UserPage from "./pages/UserPage";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-
         <Route path="/cameras" element={<CameraPage />} />
-
         <Route path="/suspects" element={<SuspectPage />} />
         <Route path="/user" element={<UserLayout />} />
         <Route path="/graph" element={<GraphPage />} />

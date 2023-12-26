@@ -3,10 +3,11 @@ import { BsAppIndicator } from "react-icons/bs";
 import { IoMdFlag } from "react-icons/io";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 const UserSideBar = () => {
+ 
   const [sidebarHidden, setSidebarHidden] = useState(true);
 
   const isLargeScreen = useMediaQuery({ minWidth: 768 });

@@ -8,7 +8,7 @@ function UserLayout() {
     <div className='  bg-gray-800 min-h-screen'>
       <UserSideBar />
       <div className='pl-80'>
-        <CameraComponent />
+        <Outlet />
       </div>
     </div>
   );
