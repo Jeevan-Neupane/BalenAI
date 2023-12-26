@@ -1,10 +1,9 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 function Layout() {
-  const { pathname } = useLocation();
+
   return (
     <>
       <div className='  bg-gray-800 min-h-screen'>
