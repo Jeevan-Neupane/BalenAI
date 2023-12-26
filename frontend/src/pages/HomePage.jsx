@@ -30,11 +30,11 @@ function HomePage() {
       <div className='flex gap-8'>
         <StatCard
           title='Total Cameras'
-          number='500'
+          number='4'
         />
         <StatCard
           title='Total Suspects'
-          number='250'
+          number='10'
         />
       </div>
       <div className='flex  mt-16  gap-30 items-center '>
@@ -42,7 +42,7 @@ function HomePage() {
           <h1 className='text-3xl font-semibold  text-white mb-4'>Our Goal</h1>
           <MotiveImages items={items} />
         </div>
-        <div>
+        <div className="ml-5">
           <h1 className='text-3xl font-semibold  text-white mb-4'>Locations</h1>
           <Location />
         </div>
