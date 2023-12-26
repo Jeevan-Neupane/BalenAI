@@ -1,16 +1,25 @@
-import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { BsAppIndicator, BsHouseDoorFill } from "react-icons/bs";
-import { AiFillCamera, AiOutlineUser } from "react-icons/ai";
-import { FaChartBar } from "react-icons/fa";
-import { IoMdFlag } from "react-icons/io";
+import React, {useState} from "react";
+import {NavLink, useLocation} from "react-router-dom";
+import {BsAppIndicator, BsHouseDoorFill} from "react-icons/bs";
+import {
+  AiFillCamera,
+  AiOutlineCloseCircle,
+  AiOutlineUser,
+} from "react-icons/ai";
+import {FaChartBar} from "react-icons/fa";
+import {IoMdFlag} from "react-icons/io";
+import {useMediaQuery} from "react-responsive";
+import {BiMenu} from "react-icons/bi";
+
+
 
 const Sidebar = () => {
   const { pathname } = useLocation();
   const [sidebarHidden, setSidebarHidden] = useState(false);
 
+  const isLargeScreen = useMediaQuery({minWidth: 768});
   const toggleSidebar = () => {
-    setSidebarHidden(!sidebarHidden);
+    setSidebarHidden(isLargeScreen ? false : !sidebarHidden);
   };
 
   const activeLinkStyle = ({ isActive }) => {
@@ -22,15 +31,33 @@ const Sidebar = () => {
 
   return (
     <>
+      {sidebarHidden && (
+        <div className="menu-icon">
+          <BiMenu
+            className="cursor-pointer md:hidden m-3 text-2xl"
+            onClick={toggleSidebar}
+          />
+        </div>
+      )}
       <div
         className={`sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 ${
-          sidebarHidden ? "hidden" : ""
+          isLargeScreen || !sidebarHidden ? "" : "hidden"
         }`}
       >
-        <div className='text-gray-100 text-xl'>
-          <div className='p-2.5 mt-1 flex items-center'>
-            <BsAppIndicator className='px-2 py-1 rounded-md bg-blue-600' />
-            <h1 className='font-bold text-gray-200 text-[30px] ml-3'>
+
+        {!sidebarHidden && (
+          <div className="w-full text-white text-2xl flex justify-end">
+            <AiOutlineCloseCircle
+              className="cursor-pointer md:hidden m-2"
+              onClick={toggleSidebar}
+            />
+          </div>
+        )}
+        <div className="text-gray-100 text-xl">
+          <div className="p-2.5 mt-1 flex items-center">
+            <BsAppIndicator className="px-2 py-1 rounded-md bg-blue-600" />
+            <h1 className="font-bold text-gray-200 text-[30px] ml-3">
+
               BalenAI
             </h1>
             {sidebarHidden ? (
