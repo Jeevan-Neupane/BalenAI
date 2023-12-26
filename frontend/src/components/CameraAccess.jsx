@@ -153,6 +153,7 @@ const CameraComponent = () => {
         height='100px'
         autoPlay
         muted
+        id='targetElement'
       ></video>
       {isRecording && (
         <div className='mt-4'>

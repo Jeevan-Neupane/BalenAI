@@ -1,6 +1,7 @@
 import React from "react";
 import CameraComponent from "../components/CameraAccess";
 import UploadVideo from "../components/UploadVideo";
+import CameraCard from "../components/CameraCard";
 
 function CameraPage() {
   return (
