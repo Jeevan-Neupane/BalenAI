@@ -11,6 +11,7 @@ import Layout from "./layout/Layout";
 import CameraPage from "./pages/CameraPage";
 import SuspectPage from "./pages/SuspectPage";
 import UserLayout from "./layout/UserLayout";
+import UserPage from "./pages/UserPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -35,7 +36,7 @@ function App() {
         />
         <Route
           path='/user'
-          element={<UserLayout />}
+          element={<UserPage />}
         />
       </Route>
     )
