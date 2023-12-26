@@ -14,13 +14,15 @@ const CameraComponent = () => {
     if (isRecording) {
       timer = setInterval(() => {
         setRecordingTime((prevTime) => prevTime + 1);
-      }, 1000);
+      }, 3000);
     }
 
     return () => {
       clearInterval(timer);
     };
   }, [isRecording]);
+
+  
 
   const startCamera = async () => {
     try {
@@ -153,7 +155,6 @@ const CameraComponent = () => {
         height='100px'
         autoPlay
         muted
-        id='targetElement'
       ></video>
       {isRecording && (
         <div className='mt-4'>

@@ -4,7 +4,7 @@ import Location from "../components/Location";
 import MotiveImages from "../components/Motive";
 import Slogan from "../components/Slogan";
 
-function HomePage() {
+function HomePage({ screenshotHistory }) {
   const items = [
     {
       imageSrc:
@@ -21,6 +21,7 @@ function HomePage() {
     },
     // Add more items as needed
   ];
+  const length = screenshotHistory.length;
   return (
     <div className='relative'>
       <div className='mb-1'>
@@ -34,7 +35,7 @@ function HomePage() {
         />
         <StatCard
           title='Total Suspects'
-          number='10'
+          number={`${length}`}
         />
       </div>
       <div className='flex  mt-16  gap-30 items-center '>
@@ -42,7 +43,7 @@ function HomePage() {
           <h1 className='text-3xl font-semibold  text-white mb-4'>Our Goal</h1>
           <MotiveImages items={items} />
         </div>
-        <div className="ml-5">
+        <div className='ml-5'>
           <h1 className='text-3xl font-semibold  text-white mb-4'>Locations</h1>
           <Location />
         </div>
