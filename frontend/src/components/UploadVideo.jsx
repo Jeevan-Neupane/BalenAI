@@ -35,9 +35,7 @@ const UploadVideo = ({ title }) => {
         },
         body: formData,
       })
-        .then((response) => 
-          response.blob() 
-        )
+        .then((response) => response.blob())
         .then((videoBlob) => {
           const blobUrl = URL.createObjectURL(videoBlob);
           setVideoUrl(blobUrl);
@@ -50,53 +48,54 @@ const UploadVideo = ({ title }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto pt-8">
-      <h1 className="text-3xl font-semibold  text-white mb-4 text-center">
+    <div className='max-w-md mx-auto pt-8'>
+      <h1 className='text-3xl font-semibold  text-white mb-4 text-center'>
         {title}
       </h1>
       <div
         onDrop={handleDrop}
         onDragOver={handleDragOver}
-        className="border-2 border-dashed border-gray-300 p-8 rounded-md text-center cursor-pointer"
+        className='border-2 border-dashed border-gray-300 p-8 rounded-md text-center cursor-pointer'
       >
-        <p className="text-gray-600">
+        <p className='text-gray-600'>
           Drag and drop a video file here, or click to select one.
         </p>
         <input
-          type="file"
-          accept="video/*"
+          type='file'
+          accept='video/*'
           onChange={handleVideoChange}
-          className="hidden"
+          className='hidden'
         />
         <button
           onClick={() => document.querySelector('input[type="file"]').click()}
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className='mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
         >
           Select Video
         </button>
       </div>
-      {selectedVideo && (
-        <div className="mt-4">
-          <p className="text-green-700">Selected Video: {selectedVideo.name}</p>
-          <button
-            onClick={handleUpload}
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Upload Video
-          </button>
-        </div>
-      )}
-
-{videoUrl && (
-        <div className="mt-4">
+      (
+      <div className='mt-4'>
+        <p className='text-green-700'>Selected Video: {selectedVideo?.name}</p>
+        <button
+          onClick={handleUpload}
+          className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
+        >
+          Upload Video
+        </button>
+      </div>
+      {videoUrl && (
+        <div className='mt-4'>
           <video
             controls
-            width="100%"
-            height="auto"
+            width='100%'
+            height='auto'
             onPlay={() => console.log("Video is playing")}
             onPause={() => console.log("Video is paused")}
           >
-            <source src={videoUrl} type="video/mp4" />
+            <source
+              src={videoUrl}
+              type='video/mp4'
+            />
             Your browser does not support the video tag.
           </video>
         </div>

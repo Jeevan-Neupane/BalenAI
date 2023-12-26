@@ -1,5 +1,8 @@
 import React from "react";
 import SuspectTable from "../components/Suspect";
+import ScreenshotComponent from "../components/ScreenShot";
+import UploadVideo from "../components/UploadVideo";
+import CameraComponent from "../components/CameraAccess";
 
 function SuspectPage() {
   return (
@@ -9,6 +12,8 @@ function SuspectPage() {
       </div>
 
       <SuspectTable />
+      <CameraComponent />
+      <ScreenshotComponent />
     </div>
   );
 }
