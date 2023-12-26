@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const UploadVideo = ({ title }) => {
+const UploadVideo = ({title, onVideoUpload}) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
 
@@ -35,12 +35,11 @@ const UploadVideo = ({ title }) => {
         },
         body: formData,
       })
-        .then((response) => 
-          response.blob() 
-        )
+        .then((response) => response.blob())
         .then((videoBlob) => {
           const blobUrl = URL.createObjectURL(videoBlob);
           setVideoUrl(blobUrl);
+          onVideoUpload(blobUrl);
           console.log("Upload successful:", data);
         })
         .catch((error) => {
@@ -50,7 +49,7 @@ const UploadVideo = ({ title }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto pt-8">
+    <div className="max-w-md mx-auto pt-8 flex flex-col">
       <h1 className="text-3xl font-semibold  text-white mb-4 text-center">
         {title}
       </h1>
@@ -87,7 +86,7 @@ const UploadVideo = ({ title }) => {
         </div>
       )}
 
-{videoUrl && (
+      {videoUrl && (
         <div className="mt-4">
           <video
             controls
