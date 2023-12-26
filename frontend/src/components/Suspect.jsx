@@ -1,44 +1,8 @@
 import React from "react";
 
-const SuspectTable = () => {
+const SuspectTable = ({ suspects }) => {
   // Array of data
-  const data = [
-    {
-      date: "2023-12-25",
-      time: "12:00 PM",
-      location: "Your Location",
-      image:
-        "https://plus.unsplash.com/premium_photo-1669590487094-c01dfc2ee939?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8fA",
-    },
-    {
-      date: "2023-12-25",
-      time: "12:00 PM",
-      location: "Your Location",
-      image:
-        "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_300,dpr_3/https://assets.app.engoo.com/images/5s9iV71He6yV2yYimPzFyD.jpeg",
-    },
-    {
-      date: "2023-12-25",
-      time: "12:00 PM",
-      location: "Your Location",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvweOemHFxv65-rxTYrUVtqyrx7MrCszX7xA&usqp=CAU",
-    },
-    {
-      date: "2023-12-25",
-      time: "12:00 PM",
-      location: "Your Location",
-      image:
-        "https://assets.thehansindia.com/h-upload/2021/02/06/1029408-smoke.webp",
-    },
-    {
-      date: "2023-12-25",
-      time: "12:00 PM",
-      location: "Your Location",
-      image:
-        "https://plus.unsplash.com/premium_photo-1669590487094-c01dfc2ee939?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8fA",
-    },
-  ];
+  
 
   return (
     <div className='relative overflow-x-auto mr-6'>
@@ -49,7 +13,7 @@ const SuspectTable = () => {
               scope='col'
               className='px-6 py-3'
             >
-             SN
+              SN
             </th>
             <th
               scope='col'
@@ -78,7 +42,7 @@ const SuspectTable = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {suspects?.map((item, index) => (
             <tr
               key={index}
               className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'
