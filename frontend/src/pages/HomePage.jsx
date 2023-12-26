@@ -27,7 +27,7 @@ function HomePage() {
         <h1 className='text-3xl font-semibold  text-white mb-4'>Overview</h1>
       </div>
 
-      <div className='flex gap-10'>
+      <div className='flex gap-8'>
         <StatCard
           title='Total Cameras'
           number='500'
@@ -37,7 +37,7 @@ function HomePage() {
           number='250'
         />
       </div>
-      <div className='flex  mt-16  gap-36 items-center '>
+      <div className='flex  mt-16  gap-30 items-center '>
         <div>
           <h1 className='text-3xl font-semibold  text-white mb-4'>Our Goal</h1>
           <MotiveImages items={items} />
