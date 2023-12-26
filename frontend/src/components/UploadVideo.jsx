@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const UploadVideo = ({ title }) => {
+const UploadVideo = ({title, onVideoUpload}) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
 
@@ -39,6 +39,7 @@ const UploadVideo = ({ title }) => {
         .then((videoBlob) => {
           const blobUrl = URL.createObjectURL(videoBlob);
           setVideoUrl(blobUrl);
+          onVideoUpload(blobUrl);
           console.log("Upload successful:", data);
         })
         .catch((error) => {
@@ -48,8 +49,8 @@ const UploadVideo = ({ title }) => {
   };
 
   return (
-    <div className='max-w-md mx-auto pt-8'>
-      <h1 className='text-3xl font-semibold  text-white mb-4 text-center'>
+    <div className="max-w-md mx-auto pt-8 flex flex-col">
+      <h1 className="text-3xl font-semibold  text-white mb-4 text-center">
         {title}
       </h1>
       <div
@@ -73,18 +74,20 @@ const UploadVideo = ({ title }) => {
           Select Video
         </button>
       </div>
-      (
-      <div className='mt-4'>
-        <p className='text-green-700'>Selected Video: {selectedVideo?.name}</p>
-        <button
-          onClick={handleUpload}
-          className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
-        >
-          Upload Video
-        </button>
-      </div>
+      {selectedVideo && (
+        <div className="mt-4">
+          <p className="text-green-700">Selected Video: {selectedVideo.name}</p>
+          <button
+            onClick={handleUpload}
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Upload Video
+          </button>
+        </div>
+      )}
+
       {videoUrl && (
-        <div className='mt-4'>
+        <div className="mt-4">
           <video
             controls
             width='100%'

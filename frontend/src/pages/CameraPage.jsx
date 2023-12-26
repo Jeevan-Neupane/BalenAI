@@ -4,33 +4,14 @@ import UploadVideo from "../components/UploadVideo";
 import CameraCard from "../components/CameraCard";
 
 function CameraPage() {
-  const citiesData = [
-    {
-      name: "Satdobato",
-     
-    },
-    {
-      name: "Koteshwor",
-    
-    },
-    {
-      name: "Pulchowk",
-  
-    },
-    {
-      name: "Thimi",
-     
-    },
-  ];
   return (
-    <div className='flex justify-center'>
-      {citiesData.map((city, index) => (
-        <CameraCard
-          key={index}
-          name={city.name}
-         
-        />
-      ))}
+    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4 ">
+      <UploadVideo title="Satdobato" />
+
+      <UploadVideo title="Koteshwor" />
+      <UploadVideo title="Pulchowk" />
+      <UploadVideo title="Thimi" />
+
     </div>
   );
 }
