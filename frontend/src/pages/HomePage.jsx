@@ -14,9 +14,10 @@ function HomePage() {
     },
     {
       imageSrc:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_EnwJGN6Zo_R2aOHuz1fAumDQMMiE0emMIw&usqp=CAU",
-      text: "Ensure Public Health",
-      description: "Everyone will be save",
+        "https://estuary.dev/static/fde13056c70783b74f41b10d9649f74a/3a40c/dd278b_03_Real_Time_Processing_Benefits_d8291dd351.jpg",
+      text: "Real-time Processing",
+      description:
+        "Optimize the system to detect smoking incidents in real-time, ensuring prompt alerts to relevant authorities.",
     },
     // Add more items as needed
   ];
