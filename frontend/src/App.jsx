@@ -10,7 +10,6 @@ import HomePage from "./pages/HomePage";
 import Layout from "./layout/Layout";
 import CameraPage from "./pages/CameraPage";
 import SuspectPage from "./pages/SuspectPage";
-import UserLayout from "./layout/UserLayout";
 import GraphPage from "./pages/GraphPage";
 import UserPage from "./pages/UserPage";
 import SingleVideoPage from "./pages/SingleVideoPage";
@@ -24,7 +23,6 @@ function App() {
   // Create a BrowserRouter and define routes using React Router.
   const [screenshotHistory, setScreenshotHistory] = useState([]);
 
-  console.log(screenshotHistory);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
